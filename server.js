@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const app = express();
 
 const path = require("path");
+require("dotenv").config();
 
 app.use(morgan("dev"));
 app.use(express.urlencoded({extended: true}));
@@ -13,7 +14,7 @@ app.use(express.static("public"));
 
 const db = require("./models");
 
-mongoose.connect("mongodb://localhost/workout", {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+mongoose.connect(process.env.MONGODBX, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
 
 // html routes
 // crud 
