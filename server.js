@@ -59,6 +59,12 @@ app.put("/api/workouts/:id", function (require, response) {
   });
 });
 
+app.post("/api/workouts", function (require, response) {
+  db.Workout.create({}).then(function (data) {
+    response.json(data);
+  });
+});
+
 app.get("/api/workouts/range", function (require, response) {
   db.Workout.find({}).then(function (data) {
     response.json(data);
